@@ -1,0 +1,8 @@
+.DS_Store
+.idea
+/build
+/dist
+/node_modules
+.env
+.eslintcache
+/storybook-static

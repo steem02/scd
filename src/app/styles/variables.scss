@@ -1,0 +1,11 @@
+:root {
+  --font-size-s: 14px;
+  --font-size-m: 16px;
+  --font-size-l: 20px;
+
+  --font-family-main: 'Comic Sans MS', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+  --font-s: var(--font-size-s) var(--font-family-main);
+  --font-m: var(--font-size-m) var(--font-family-main);
+  --font-l: var(--font-size-l) var(--font-family-main);
+}
