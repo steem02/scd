@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: var(--header-height);
+  padding: 10px 20px;
+  color: var(--inverted-primary-color);
+  background-color: var(--inverted-bg-color);
+}
+
+.link {
+  margin: 0 5px;
+}

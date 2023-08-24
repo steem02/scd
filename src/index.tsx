@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
-import { Counter } from "./components/Couter";
-import { App } from "./src/App";
+import { Counter } from "../components/Couter";
+import { App } from "@/app/App";
 
 const container = document.getElementById("root");
 

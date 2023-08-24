@@ -1,0 +1,15 @@
+.root {
+  text-decoration: none;
+}
+
+.primary {
+  &, &:active, &:visited {
+    color: var(--primary-color);
+  }
+}
+
+.inverse {
+  &, &:active, &:visited {
+    color: var(--inverted-primary-color);
+  }
+}

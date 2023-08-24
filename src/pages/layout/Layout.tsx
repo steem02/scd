@@ -1,10 +1,9 @@
 import { Link, Outlet } from "react-router-dom";
-import { useTheme } from "../../app/providers/ThemeProvider";
+import { Header } from "@/widgets/Header";
 
 export function Layout() {
   return <div className={ "app" }>
-    <Link to={ "/" }>MAIN</Link>
-    <Link to={ "/about" }>ABOUT</Link>
+    <Header/>
     <Outlet/>
   </div>;
 }

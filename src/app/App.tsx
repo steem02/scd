@@ -6,6 +6,7 @@ import { MainPageAsync } from "@/pages/main/ui/MainPageAsync";
 import "@/app/styles/index.scss";
 import { ThemeProvider } from "@/app/providers/ThemeProvider";
 import path from "path";
+import { AppRouter } from "@/app/providers/RouterProvider/ui/AppRouter";
 
 interface AppProps {
 
@@ -15,12 +16,7 @@ export function App(props: AppProps) {
   return <BrowserRouter>
     <ThemeProvider>
       <Suspense fallback={ <div>LOADING...</div> }>
-        <Routes>
-          <Route path={ "/" } element={ <Layout/> }>
-            <Route path="/about" element={ <AboutPageAsync/> }/>
-            <Route index element={ <MainPageAsync/> }/>
-          </Route>
-        </Routes>
+        <AppRouter/>
       </Suspense>
     </ThemeProvider>
   </BrowserRouter>;

@@ -6,7 +6,7 @@ import { BuildEnv, BuildOptions } from "./config/build/types/config";
 
 const paths = {
   build: path.join(__dirname, "dist"),
-  entry: path.join(__dirname, "index.tsx"),
+  entry: path.join(__dirname, "src", "index.tsx"),
   html: path.join(__dirname, "index.pug"),
   src: path.join(__dirname, "src"),
 };

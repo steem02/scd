@@ -1,6 +1,5 @@
 import { PropsWithChildren, useContext, useEffect, useMemo, useState } from "react";
 import { Theme, ThemeContext, ThemeVariant } from "./ThemeContext";
-import { Logger } from "sass";
 
 export function useTheme() {
   const ctx = useContext(ThemeContext);
@@ -35,13 +34,4 @@ export function ThemeProvider(props: PropsWithChildren<{}>) {
   return <ThemeContext.Provider value={ themeContextValue }>
     { props.children }
   </ThemeContext.Provider>;
-}
-
-function getThemeFromLocalStorage(): ThemeVariant {
-  let theme = window.localStorage.getItem(LOCAL_STORAGE_THEME_KEY);
-
-  if (theme == null) {
-    return "light";
-  }
-  return theme as ThemeVariant;
 }
