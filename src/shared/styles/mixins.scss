@@ -1,0 +1,5 @@
+@mixin cleared-link {
+  &, &:active, &:link, &:visited {
+    @content;
+  }
+}

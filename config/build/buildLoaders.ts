@@ -3,11 +3,20 @@ import { BuildOptions, BuildPaths } from "./types/config";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 export const buildLoaders = ({ isDev }: BuildOptions): webpack.RuleSetRule => {
-  console.log(isDev);
+  const svgLoader = {
+    test: /\.svg$/,
+    issuer: /\.[jt]sx?$/,
+    use: [ "@svgr/webpack" ],
+  };
+
+  const filesLoader = {
+    test: /\.(png|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/i,
+    type: "asset/resource",
+  };
+
   const sassLoader = {
     test: /\.scss$/,
     use: [
-      // fallback to style-loader in development
       isDev
         ? "style-loader"
         : MiniCssExtractPlugin.loader,
@@ -40,6 +49,8 @@ export const buildLoaders = ({ isDev }: BuildOptions): webpack.RuleSetRule => {
   return {
     rules:
       [
+        svgLoader,
+        filesLoader,
         pugLoader,
         tsLoader,
         sassLoader,
