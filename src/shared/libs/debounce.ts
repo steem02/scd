@@ -1,10 +1,10 @@
 function debounce(func: () => void, duration: number) {
-  let timer: any;
+  let timer: any
   return (...args: []) => {
-    clearTimeout(timer);
+    clearTimeout(timer)
 
     timer = setTimeout(() => {
-      func(...args as []);
-    }, duration);
-  };
+      func(...args as [])
+    }, duration)
+  }
 }

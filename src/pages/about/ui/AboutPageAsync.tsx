@@ -1,5 +1,10 @@
-import { lazy } from "react";
-import { delayForDemo } from "../../../shared/libs/delayForDemo";
+import { lazy } from 'react';
+import { delayForDemo } from '../../../shared/libs/delayForDemo';
 
-// @ts-ignore
-export const AboutPageAsync = lazy(delayForDemo(() => import("./AboutPage")));
+export const AboutPageAsync = lazy(
+  delayForDemo(
+    async () =>
+      // @ts-expect-error так надо
+      await import('./AboutPage')
+  )
+);

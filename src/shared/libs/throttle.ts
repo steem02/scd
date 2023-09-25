@@ -1,6 +1,6 @@
 function throttle(func: () => void, duration: number) {
   let isThrottling = false;
-  let lastArgs: any[];
+  let lastArgs: unknown[] | undefined;
 
   function wrapper(...args: any[]) {
     if (isThrottling) {
@@ -8,14 +8,14 @@ function throttle(func: () => void, duration: number) {
       return;
     }
 
-    func(...args as []);
+    func(...(args as []));
     isThrottling = true;
 
     setTimeout(() => {
       isThrottling = false;
 
-      if (lastArgs) {
-        wrapper(...lastArgs as any);
+      if (lastArgs != null) {
+        wrapper(...(lastArgs as any));
         lastArgs = undefined;
       }
     }, duration);

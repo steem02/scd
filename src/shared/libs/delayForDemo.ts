@@ -1,9 +1,8 @@
 export function delayForDemo<T>(
-  promise: () => Promise<T>, delay: number = 300,
+  promise: () => Promise<T>, delay: number = 300
 ): () => Promise<T> {
-  return () =>
-    new Promise(resolve => {
-      setTimeout(resolve, delay);
-    }).then(() => promise());
+  return async () =>
+    await new Promise(resolve => {
+      setTimeout(resolve, delay)
+    }).then(async () => await promise())
 }
-
