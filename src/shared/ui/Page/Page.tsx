@@ -1,6 +1,6 @@
 import { type PropsWithChildren, Suspense } from 'react';
 import s from './Page.module.scss';
-import { cn } from '@/shared/libs/classNames';
+import { cn } from '@/shared/libs/classNames/classNames';
 
 interface PageProps {
   className?: string;

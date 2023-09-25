@@ -2,7 +2,9 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
+  parser: '@typescript-eslint/parser',
   extends: [
     'standard-with-typescript',
     'plugin:react/recommended',
@@ -20,10 +22,16 @@ module.exports = {
     },
   ],
   parserOptions: {
-    ecmaVersion: 'latest',
     sourceType: 'module',
+    tsConfigRootDir: __dirname,
+    project: ['./tsconfig.json'],
+    ecmaVersion: 'latest',
+    ecmaFeatures: {
+      jsx: true,
+    },
   },
-  plugins: ['react', 'i18next'],
+  root: true,
+  plugins: ['react', 'i18next', '@typescript-eslint'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': [0],
     '@typescript-eslint/no-empty-interface': [1],

@@ -1,4 +1,4 @@
-import { cn } from '@/shared/libs/classNames';
+import { cn } from '@/shared/libs/classNames/classNames';
 
 import s from './Header.module.scss';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';

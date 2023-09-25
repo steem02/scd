@@ -1,5 +1,5 @@
 import { Link, type LinkProps } from 'react-router-dom';
-import { cn } from '@/shared/libs/classNames';
+import { cn } from '@/shared/libs/classNames/classNames';
 import s from './AppLink.module.scss';
 
 type LinkVariant = 'primary' | 'inverse';

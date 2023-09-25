@@ -1,4 +1,4 @@
-import { cn } from '@/shared/libs/classNames';
+import { cn } from '@/shared/libs/classNames/classNames';
 import DarkIcon from '../assets/theme-dark.svg';
 import LightIcon from '../assets/theme-light.svg';
 import { useTheme } from '@/app/providers/ThemeProvider';
