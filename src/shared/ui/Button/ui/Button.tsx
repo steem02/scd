@@ -3,9 +3,9 @@ import { cn } from '@/shared/libs/classNames';
 import s from './Button.module.scss';
 
 export type ButtonProps<C extends React.ElementType = 'button'> = {
-  as?: C
-  variant?: 'cleared' | 'primary'
-  className?: string
+  as?: C;
+  variant?: 'cleared' | 'primary';
+  className?: string;
 } & React.ComponentProps<C>;
 
 export function Button<C extends React.ElementType = 'button'>(

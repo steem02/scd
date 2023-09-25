@@ -23,7 +23,10 @@ export const buildLoaders = ({ isDev }: BuildOptions): webpack.RuleSetRule => {
         options: {
           modules: {
             auto: (resourcePath: string) => {
-              return !resourcePath.includes('node_modules') && resourcePath.includes('.module.');
+              return (
+                !resourcePath.includes('node_modules') &&
+                resourcePath.includes('.module.')
+              );
             },
             localIdentName: isDev ? '[path][name]__[local]' : '[hash:base64:8]',
           },

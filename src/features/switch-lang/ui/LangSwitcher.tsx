@@ -1,17 +1,19 @@
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from "react-i18next";
 
-interface LangSwitcherProps {
-
-}
+interface LangSwitcherProps {}
 
 export function LangSwitcher(props: LangSwitcherProps) {
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation();
 
   const toggleLang = () => {
-    i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru').catch((e) => { console.log(e.message) })
-  }
+    i18n.changeLanguage(i18n.language === '"ru"? '"en": '"ru".catch((e) => {
+      console.log(e.message);
+    });
+  };
 
-  return <div>
-    <button onClick={ toggleLang }>{ t(i18n.language) }</button>
-  </div>
+  return (
+    <div>
+      <button onClick={ toggleLang }>{ t(i18n.language) }</button>
+    </div>
+  );
 }

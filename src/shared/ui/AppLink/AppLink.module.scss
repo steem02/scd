@@ -3,13 +3,17 @@
 }
 
 .primary {
-  &, &:active, &:visited {
+  &,
+  &:active,
+  &:visited {
     color: var(--primary-color);
   }
 }
 
 .inverse {
-  &, &:active, &:visited {
+  &,
+  &:active,
+  &:visited {
     color: var(--inverted-primary-color);
   }
 }

@@ -1,11 +1,11 @@
 declare module '*.svg' {
-  const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>
-  export default content
+  const content: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  export default content;
 }
 
 declare module '*.scss' {
-  const content: Record<string, string>
-  export default content
+  const content: Record<string, string>;
+  export default content;
 }
 
 declare module '*.jpeg';
@@ -18,4 +18,4 @@ declare module '*.eot';
 declare module '*.ttf';
 declare module '*.otf';
 
-declare const __IS_DEV__: boolean
+declare const __IS_DEV__: boolean;

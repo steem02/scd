@@ -6,21 +6,21 @@
   width: var(--sidebar-width);
   min-height: calc(100vh - var(--header-height));
   padding: 16px;
-  background-color: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
+  background-color: var(--inverted-bg-color);
   transition: width 0.3s ease-in-out;
-}
-
-.collapsed {
-  width: var(--collapsed-sidebar-width);
-  align-items: center;
-
-  & .actions {
-    flex-direction: column;
-  }
 }
 
 .actions {
   display: flex;
   gap: 12px;
+}
+
+.collapsed {
+  align-items: center;
+  width: var(--collapsed-sidebar-width);
+
+  & .actions {
+    flex-direction: column;
+  }
 }

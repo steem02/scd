@@ -6,7 +6,7 @@ import { LangSwitcher } from '@/features/switch-lang';
 import { useTranslate } from '@/shared/hooks/useTranslate';
 
 interface SidebarProps {
-  className?: string
+  className?: string;
 }
 
 export function Sidebar({ className }: SidebarProps) {

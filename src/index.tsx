@@ -1,11 +1,10 @@
-import { createRoot } from 'react-dom/client'
-import { Counter } from '../components/Couter'
-import { App } from '@/app/App'
+import { createRoot } from 'react-dom/client';
+import { App } from '@/app/App';
 
-const container = document.getElementById('root')
+const container = document.getElementById('root');
 
 // Create a root.
-const root = createRoot(container)
+const root = createRoot(container);
 
 // Initial render
-root.render(<App/>)
+root.render(<App />);

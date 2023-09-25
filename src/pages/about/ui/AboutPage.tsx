@@ -1,13 +1,14 @@
-import { useTranslate } from '@/shared/hooks/useTranslate'
-import { Page } from '@/shared/ui/Page/Page'
+import { useTranslate } from '@/shared/hooks/useTranslate';
+import { Page } from '@/shared/ui/Page/Page';
 
-interface AboutPageProps {
-
-}
+interface AboutPageProps {}
 
 export default function AboutPage(props: AboutPageProps) {
-  const t = useTranslate()
-  return <Page>{ t('title', { ns: 'about' }) }fjj
-    <button>jhdfh</button>
-  </Page>
+  const t = useTranslate();
+  return (
+    <Page>
+      {t('title', { ns: 'about' })}
+      <button>jhdfh</button>
+    </Page>
+  );
 }
