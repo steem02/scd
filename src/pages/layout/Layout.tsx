@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Header } from '@/widgets/Header';
-import { Page } from '@/shared/ui/Page/Page';
+import { Page } from '@/widgets/Page';
 import { Sidebar } from '@/widgets/Sidebar';
 import s from './Layout.module.scss';
 

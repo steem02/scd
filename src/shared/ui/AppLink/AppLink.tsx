@@ -13,11 +13,7 @@ export function AppLink(props: AppLinkProps) {
   const { children, className, variant = 'primary', ...rest } = props;
 
   return (
-    <Link
-      className={cn([className, s.root, s[variant]])}
-      to={'/main'}
-      {...rest}
-    >
+    <Link className={cn([className, s.root, s[variant]])} {...rest}>
       {children}
     </Link>
   );

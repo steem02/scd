@@ -1,0 +1,45 @@
+.loader {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 5px solid var(--inverted-bg-color);
+  border-radius: 50%;
+  animation: pulse 1s linear infinite;
+}
+
+.loader::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  content: '';
+  border: 5px solid var(--inverted-bg-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: scaleUp 1s linear infinite;
+}
+
+@keyframes scaleUp {
+  0% {
+    transform: translate(-50%, -50%) scale(0)
+  }
+
+  60%, 100% {
+    transform: translate(-50%, -50%) scale(1)
+  }
+}
+
+@keyframes pulse {
+  0%, 60%, 100% {
+    transform: scale(1)
+  }
+
+  80% {
+    transform: scale(1.2)
+  }
+}

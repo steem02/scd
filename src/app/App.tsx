@@ -1,5 +1,4 @@
 import { BrowserRouter } from 'react-router-dom';
-import { Suspense } from 'react';
 import '@/app/styles/index.scss';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { AppRouter } from '@/app/providers/RouterProvider/ui/AppRouter';
@@ -11,9 +10,7 @@ export function App(props: AppProps) {
   return (
     <BrowserRouter>
       <ThemeProvider>
-        <Suspense fallback={<div>LOADING...</div>}>
-          <AppRouter />
-        </Suspense>
+        <AppRouter />
       </ThemeProvider>
     </BrowserRouter>
   );

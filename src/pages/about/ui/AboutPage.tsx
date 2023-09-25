@@ -1,5 +1,5 @@
 import { useTranslate } from '@/shared/hooks/useTranslate';
-import { Page } from '@/shared/ui/Page/Page';
+import { Page } from '@/widgets/Page';
 
 interface AboutPageProps {}
 

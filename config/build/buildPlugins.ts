@@ -22,5 +22,5 @@ export const buildPlugins = (
       new ReactRefreshWebpackPlugin({
         // Options...
       }),
-  ].filter(Boolean);
+  ].filter(Boolean) as webpack.WebpackPluginInstance[];
 };

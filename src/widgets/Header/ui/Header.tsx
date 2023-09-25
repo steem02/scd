@@ -6,7 +6,6 @@ import { useTranslate } from '@/shared/hooks/useTranslate';
 
 interface HeaderProps {
   className?: string;
-  dfsf: string;
 }
 
 export function Header(props: HeaderProps) {
