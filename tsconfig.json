@@ -18,7 +18,11 @@
     }
   },
   "include": [
-    "**/*"
+    "**/*",
+    "./.eslintrc.js"
+  ],
+  "exclude": [
+    "node_modules"
   ],
   "ts-node": {
     "compilerOptions": {

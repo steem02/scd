@@ -1,6 +1,7 @@
 @import '@/shared/styles/mixins';
 
 .root {
+  padding: 4px;
   cursor: pointer;
   border: none;
   border-radius: 8px;
@@ -13,8 +14,8 @@
 }
 
 .primary {
-  color: var(--primary-color);
-  background-color: var(--bg-color);
+  color: var(--inverted-primary-color);
+  background-color: var(--inverted-bg-color);
 }
 
 .cleared {
