@@ -11,10 +11,10 @@ export const buildWebpackConfig = (
   mode: options.mode,
   devtool: options.isDev ? 'inline-source-map' : undefined,
   entry: options.paths.entry,
-
   output: {
     filename: '[name].[contenthash].js',
     path: options.paths.build,
+    publicPath: '/',
     clean: true,
   },
 

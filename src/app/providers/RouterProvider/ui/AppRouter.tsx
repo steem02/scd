@@ -1,6 +1,7 @@
 import { Layout } from '@/pages/layout/Layout';
 import { Route, Routes } from 'react-router-dom';
 import { routerConfig } from '@/app/providers/RouterProvider/config/routerConfig';
+import { NotFoundPage } from '@/pages/not-found';
 
 interface AppRouterProps {}
 
@@ -12,6 +13,7 @@ export function AppRouter(props: AppRouterProps) {
           <Route key={route.path?.toString()} {...route} />
         ))}
       </Route>
+      <Route path={'*'} element={<NotFoundPage />} />
     </Routes>
   );
 }
