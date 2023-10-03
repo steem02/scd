@@ -5,7 +5,9 @@
 .primary {
   &,
   &:active,
-  &:visited {
+  &:visited,
+  &:link,
+  &:any-link {
     color: var(--primary-color);
   }
 }
@@ -13,7 +15,9 @@
 .inverse {
   &,
   &:active,
-  &:visited {
+  &:visited,
+  &:link,
+  &:any-link {
     color: var(--inverted-primary-color);
   }
 }
