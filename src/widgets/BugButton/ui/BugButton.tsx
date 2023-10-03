@@ -14,9 +14,5 @@ export function BugButton() {
     }
   }, [hasError]);
 
-  return (
-    <Button onClick={errorTrigger} variant={'primary'}>
-      Bug
-    </Button>
-  );
+  return <Button onClick={errorTrigger}>Bug</Button>;
 }

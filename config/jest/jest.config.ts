@@ -16,30 +16,28 @@ const config: Config = {
   // cacheDirectory: "/private/var/folders/28/zlz21l497yg51xl4ddgp7tqc0000gn/T/jest_dx",
 
   // Automatically clear mock calls, instances, contexts and results before every test
+  setupFilesAfterEnv: ['<rootDir>/config/jest/setupFile.ts'],
   clearMocks: true,
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: ['/node_modules/'],
   globals: {
     __IS_DEV__: true,
   },
-  moduleFileExtensions: [
-    'js',
-    'mjs',
-    'cjs',
-    'jsx',
-    'ts',
-    'tsx',
-    'json',
-    'node',
-  ],
+  moduleFileExtensions: ['js', 'mjs', 'cjs', 'jsx', 'ts', 'tsx', 'json', 'node'],
   rootDir: '../..',
   roots: ['<rootDir>/src/'],
   moduleNameMapper: {
     '@/(.*)$': '<rootDir>/src/$1',
+    '\\.s?css$': 'identity-obj-proxy',
+    '\\.svg$': '<rootDir>/config/jest/__mocks__/fileTransformer.tsx',
   },
+  modulePaths: ['<rootDir>'],
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
-  testPathIgnorePatterns: ['/node_modules/'],
-  moduleDirectories: ['node_modules'],
+  testPathIgnorePatterns: ['<rootDir>/node_modules/(?!(axios)/)'],
+  moduleDirectories: ['node_modules', 'src'],
+  // transform: {
+  //   '^.+\\.tsx?$': 'babel-jest',
+  // },
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 

@@ -18,8 +18,11 @@
     }
   },
   "include": [
-    "**/*",
-    "./.eslintrc.js"
+    "./**/*",
+    "config/**/*",
+    "types/**/*",
+    ".eslintrc.js",
+    "babel.config.js"
   ],
   "exclude": [
     "node_modules"

@@ -13,8 +13,12 @@ export function Sidebar({ className }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   const t = useTranslate();
   return (
-    <div className={cn([s.sidebar, className], { [s.collapsed]: collapsed })}>
+    <div
+      data-testid={'sidebar'}
+      className={cn([s.sidebar, className], { [s.collapsed]: collapsed })}
+    >
       <button
+        data-testid={'sidebar-toggle'}
         onClick={() => {
           setCollapsed(!collapsed);
         }}

@@ -5,11 +5,7 @@ module.exports = {
     jest: true,
   },
   parser: '@typescript-eslint/parser',
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-  ],
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:react/jsx-runtime'],
   overrides: [
     {
       env: {
@@ -18,6 +14,18 @@ module.exports = {
       files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
         sourceType: 'script',
+      },
+    },
+    {
+      files: ['**/*.test.tsx?'],
+      env: {
+        jest: true, // now **/*.test.js files' env has both es6 *and* jest
+      },
+      // Can't extend in overrides: https://github.com/eslint/eslint/issues/8813
+      // "extends": ["plugin:jest/recommended"]
+      plugins: ['jest'],
+      rules: {
+        'i18next/no-literal-string': [0],
       },
     },
   ],

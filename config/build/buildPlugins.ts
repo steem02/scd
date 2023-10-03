@@ -3,10 +3,9 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import { type BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-export const buildPlugins = (
-  options: BuildOptions
-): webpack.WebpackPluginInstance[] => {
+export const buildPlugins = (options: BuildOptions): webpack.WebpackPluginInstance[] => {
   return [
     new HtmlWebpackPlugin({
       template: options.paths.html,
@@ -20,7 +19,11 @@ export const buildPlugins = (
     }),
     options.isDev &&
       new ReactRefreshWebpackPlugin({
+        overlay: false,
         // Options...
       }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }),
   ].filter(Boolean) as webpack.WebpackPluginInstance[];
 };

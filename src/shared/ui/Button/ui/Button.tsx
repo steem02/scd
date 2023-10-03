@@ -8,14 +8,16 @@ export type ButtonProps<C extends React.ElementType = 'button'> = {
   className?: string;
 } & React.ComponentProps<C>;
 
-export function Button<C extends React.ElementType = 'button'>(
-  props: ButtonProps<C>
-) {
+export function Button<C extends React.ElementType = 'button'>(props: ButtonProps<C>) {
   const { as, children, className, variant = 'primary', ...rest } = props;
   const Component = as ?? 'button';
 
   return (
-    <Component className={cn([className, s.root, s[variant]])} {...rest}>
+    <Component
+      data-testid={'test-button'}
+      className={cn([className, s.root, s[variant]])}
+      {...rest}
+    >
       {children}
     </Component>
   );
