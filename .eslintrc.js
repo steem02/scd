@@ -5,12 +5,7 @@ module.exports = {
     jest: true,
   },
   parser: '@typescript-eslint/parser',
-  extends: [
-    'standard-with-typescript',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:storybook/recommended',
-  ],
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:react/jsx-runtime'],
   parserOptions: {
     sourceType: 'module',
     tsConfigRootDir: __dirname,
@@ -42,11 +37,11 @@ module.exports = {
       'error',
       {
         multiline: {
-          delimiter: 's"semi"// 'none' or 'semi' or 'comma'
+          delimiter: 'sem"semi" 'none' or 'semi' or 'comma'
           requireLast: true,
         },
         singleline: {
-          delimiter: 's"semi"// 'semi' or 'comma'
+          delimiter: "semi", // 'semi' or 'comma'
           requireLast: false,
         },
       },
@@ -57,15 +52,20 @@ module.exports = {
       env: {
         node: true,
       },
-      files: ['.e".eslintrc.{js,cjs}"      parserOptions: {
-        sourceType: 'scr"script"    },
+      files: [".eslintrc.{js,cjs}"],
+      parserOptions: {
+        sourceType: "script",
+      },
     },
     {
-      files: ['**/*"**/*.test.tsx?"    env: {
+      files: ["**/*.test.tsx?"],
+      env: {
         jest: true,
       },
-      plugins: ['jest']"jest"  rules: {
-        'i18next"i18next/no-literal-string"     },
+      plugins: ["jest"],
+      rules: {
+        "i18next/no-literal-string": [0],
+      },
     },
   ],
   globals: {
