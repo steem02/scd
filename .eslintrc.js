@@ -37,11 +37,11 @@ module.exports = {
       'error',
       {
         multiline: {
-          delimiter: 'sem"semi" 'none' or 'semi' or 'comma'
+          delimiter: 'semi', // 'none' or 'semi' or 'comma'
           requireLast: true,
         },
         singleline: {
-          delimiter: "semi", // 'semi' or 'comma'
+          delimiter: 'semi', // 'semi' or 'comma'
           requireLast: false,
         },
       },
@@ -52,19 +52,19 @@ module.exports = {
       env: {
         node: true,
       },
-      files: [".eslintrc.{js,cjs}"],
+      files: ['.eslintrc.{js,cjs}'],
       parserOptions: {
-        sourceType: "script",
+        sourceType: 'script',
       },
     },
     {
-      files: ["**/*.test.tsx?"],
+      files: ['**/*.test.tsx?'],
       env: {
         jest: true,
       },
-      plugins: ["jest"],
+      plugins: ['jest'],
       rules: {
-        "i18next/no-literal-string": [0],
+        'i18next/no-literal-string': [0],
       },
     },
   ],
