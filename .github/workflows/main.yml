@@ -12,17 +12,28 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '17.x'
-      - run: npm ci
+          node-version: '18.x'
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: Setup Nodejs with yarn caching
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          cache: yarn
+
+      - name: Install dependencies
+        run: yarn
+
       - name: build
-        run: npm run build:prod
+        run: npm run build
   Lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '17.x'
+          node-version: '18.x'
       - run: npm ci
       - name: run eslint
         run: npm run lint
@@ -34,7 +45,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '17.x'
+          node-version: '18.x'
       - run: npm ci
       - run: npm run test:unit
   UI:
@@ -43,7 +54,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: '17.x'
+          node-version: '18.x'
       - run: npm ci
       - name: build storybook
         run: npm run sb:build
