@@ -6,6 +6,7 @@
   "scripts": {
     "test:unit": "jest --config \"./config/jest/jest.config.ts\"",
     "test:ui": "loki test",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui:ok": "loki approve",
     "start": "webpack serve",
     "build": "webpack --env mode=production",
@@ -15,8 +16,8 @@
     "lint:scss": "stylelint \"**/*.scss\"",
     "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
     "prettier": "prettier --write \"**/*.{ts,tsx,scss,css}\"",
-    "storybook": "storybook dev -c \"config/storybook\" -p 6006",
-    "storybook:build": "storybook build -c \"config/storybook\""
+    "sb": "storybook dev -c \"config/storybook\" -p 6006",
+    "sb:build": "storybook build -c \"config/storybook\""
   },
   "author": "",
   "license": "ISC",

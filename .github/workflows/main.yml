@@ -1,0 +1,50 @@
+name: GitHub Actions Tests Group
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  Build-Production:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '17.x'
+      - run: npm ci
+      - name: build
+        run: npm run build:prod
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '17.x'
+      - run: npm ci
+      - name: run eslint
+        run: npm run lint
+      - name: run stylelint
+        run: npm run lint:scss
+  Unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '17.x'
+      - run: npm ci
+      - run: npm run test:unit
+  UI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '17.x'
+      - run: npm ci
+      - name: build storybook
+        run: npm run sb:build
+      - run: npm run test:ui:ci

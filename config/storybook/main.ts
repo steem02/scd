@@ -48,7 +48,7 @@ const config: StorybookConfig = {
         }
 
         return test.test('.svg');
-      }) as { [key: string]: any };
+      }) as Record<string, any>;
 
       imageRule.exclude = /\.svg$/;
 
