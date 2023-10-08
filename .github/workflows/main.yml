@@ -26,7 +26,7 @@ jobs:
         run: yarn
 
       - name: build
-        run: npm run build
+        run: yarn build
   Lint:
     runs-on: ubuntu-latest
     steps:
@@ -34,11 +34,19 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: npm ci
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: Setup Nodejs with yarn caching
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          cache: yarn
+
       - name: run eslint
-        run: npm run lint
+        run: yarn lint
       - name: run stylelint
-        run: npm run lint:scss
+        run: yarn lint:scss
   Unit:
     runs-on: ubuntu-latest
     steps:
@@ -46,8 +54,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: npm ci
-      - run: npm run test:unit
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: Setup Nodejs with yarn caching
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          cache: yarn
+      - run: yarn test:unit
   UI:
     runs-on: ubuntu-latest
     steps:
@@ -55,7 +70,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-      - run: npm ci
+      - name: Setup yarn
+        run: npm install -g yarn
+
+      - name: Setup Nodejs with yarn caching
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          cache: yarn
       - name: build storybook
-        run: npm run sb:build
-      - run: npm run test:ui:ci
+        run: yarn sb:build
+      - run: yarn test:ui:ci
