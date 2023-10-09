@@ -1,20 +1,24 @@
-import { Link, type LinkProps } from 'react-router-dom';
+import { NavLink, type NavLinkProps } from 'react-router-dom';
 import { cn } from '@/shared/libs/classNames/classNames';
 import s from './AppLink.module.scss';
 
 type LinkVariant = 'primary' | 'inverse';
 
-type AppLinkProps = LinkProps & {
+type AppLinkProps = NavLinkProps & {
   className?: string;
   variant?: LinkVariant;
+  children: React.ReactNode;
 };
 
 export function AppLink(props: AppLinkProps) {
   const { children, className, variant = 'primary', ...rest } = props;
 
   return (
-    <Link className={cn([className, s.root, s[variant]])} {...rest}>
+    <NavLink
+      className={({ isActive }) => cn([className, s.root, s[variant]], { [s.active]: isActive })}
+      {...rest}
+    >
       {children}
-    </Link>
+    </NavLink>
   );
 }

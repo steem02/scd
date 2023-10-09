@@ -1,7 +1,10 @@
 {
   "en": "En",
+  "lang": {
+    "default": "English",
+    "short": "Ан"
+  },
   "oops": "Oops!!! Error!",
   "reload": "Reload page",
-  "ru": "Ан",
   "toggle": "Toggle"
 }

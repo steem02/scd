@@ -2,22 +2,30 @@
   text-decoration: none;
 }
 
-.primary {
+@mixin any-link() {
   &,
   &:active,
   &:visited,
   &:link,
   &:any-link {
+    @content
+  }
+}
+
+.primary {
+  @include any-link {
     color: var(--primary-color);
   }
 }
 
 .inverse {
-  &,
-  &:active,
-  &:visited,
-  &:link,
-  &:any-link {
+  @include any-link {
     color: var(--inverted-primary-color);
+  }
+}
+
+.active {
+  @include any-link {
+    color: #209bde;
   }
 }

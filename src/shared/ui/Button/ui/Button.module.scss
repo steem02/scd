@@ -3,24 +3,63 @@
 .root {
   padding: 4px;
   cursor: pointer;
+  background-color: var(--inverted-bg-color);
   border: none;
   border-radius: 8px;
   outline: none;
 
   @include cleared-link {
-    color: var(--primary-color);
+    color: var(--inverted-primary-color);
     text-decoration: none;
   }
 }
 
-.primary {
-  color: var(--inverted-primary-color);
-  background-color: var(--inverted-bg-color);
-}
 
 .cleared {
   padding: 0;
   color: var(--primary-color);
   background-color: transparent;
   border-radius: 8px;
+}
+
+.square {
+  padding: 0;
+  border-radius: 0;
+}
+
+@mixin sq($size) {
+  width: $size;
+  height: $size;
+}
+
+.square.s {
+  @include sq(var(--font-line-s));
+}
+
+.square.m {
+  @include sq(var(--font-line-m));
+}
+
+.square.l {
+  @include sq(var(--font-line-l));
+}
+
+.s {
+  font-size: var(--font-size-s);
+}
+
+.m {
+  font-size: var(--font-size-m);
+}
+
+.l {
+  font-size: var(--font-size-l);
+}
+
+.inverted {
+  @include cleared-link {
+    color: var(--primary-color);
+  }
+
+  background-color: var(--bg-color);
 }

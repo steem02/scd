@@ -26,7 +26,7 @@ export const PrimaryDark: Story = {
   },
 };
 
-export const ClearedLight: Story = {
+export const Cleared: Story = {
   args: {
     variant: 'cleared',
   },
@@ -38,5 +38,40 @@ export const ClearedDark: Story = {
   },
   parameters: {
     theme: 'dark',
+  },
+};
+
+export const Square: Story = {
+  args: {
+    variant: 'square',
+    children: '<',
+  },
+};
+
+export const SquareDark: Story = {
+  args: {
+    variant: 'square',
+    children: '<',
+  },
+  parameters: {
+    theme: 'dark',
+  },
+};
+
+export const SizeS: Story = {
+  args: {
+    size: 's',
+  },
+};
+
+export const SizeM: Story = {
+  args: {
+    size: 'm',
+  },
+};
+
+export const SizeL: Story = {
+  args: {
+    size: 'l',
   },
 };
