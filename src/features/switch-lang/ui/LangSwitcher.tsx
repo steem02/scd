@@ -1,11 +1,11 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
 
 interface LangSwitcherProps {
   short?: boolean;
 }
 
 export function LangSwitcher({ short = false }: LangSwitcherProps) {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation('translation');
 
   const toggleLang = () => {
     i18n.changeLanguage(i18n.language === 'ru' ? 'en' : 'ru').catch((e) => {
@@ -15,7 +15,7 @@ export function LangSwitcher({ short = false }: LangSwitcherProps) {
 
   return (
     <div>
-      <button onClick={toggleLang}>{short ? t('la"lang.short" t('la"lang.default"/button>
+      <button onClick={toggleLang}>{short ? t('lang.short') : t('lang.default')}</button>
     </div>
   );
 }

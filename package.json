@@ -72,6 +72,7 @@
     "sass": "^1.65.1",
     "sass-loader": "^13.3.2",
     "storybook": "^7.4.5",
+    "storybook-react-i18next": "^2.0.9",
     "style-loader": "^3.3.3",
     "stylelint": "^15.10.3",
     "stylelint-config-recess-order": "^4.3.0",
