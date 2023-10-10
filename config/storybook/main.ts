@@ -11,6 +11,7 @@ const config: StorybookConfig = {
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
   ],
+  staticDirs: ['../../public'],
   framework: {
     name: '@storybook/react-webpack5',
     options: {},

@@ -27,6 +27,7 @@ const config: Config = {
   rootDir: '../..',
   roots: ['<rootDir>/src/'],
   moduleNameMapper: {
+    '^@/.*\\.svg$': '<rootDir>/config/jest/__mocks__/fileTransformer.tsx',
     '@/(.*)$': '<rootDir>/src/$1',
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg$': '<rootDir>/config/jest/__mocks__/fileTransformer.tsx',
@@ -34,10 +35,12 @@ const config: Config = {
   modulePaths: ['<rootDir>'],
   testMatch: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[tj]s?(x)'],
   testPathIgnorePatterns: ['<rootDir>/node_modules/(?!(axios)/)'],
-  moduleDirectories: ['node_modules', 'src'],
+  moduleDirectories: ['node_modules', 'src', '<rootDir>'],
   // transform: {
   //   '^.+\\.tsx?$': 'babel-jest',
+  //   '\\.svg': '<rootDir>/config/jest/__mocks__/fileTransformer.tsx',
   // },
+
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
 

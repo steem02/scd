@@ -17,6 +17,10 @@
       ]
     }
   },
+  "ignorePatterns": [
+    "node_modules",
+    "dist"
+  ],
   "include": [
     "src/**/*",
     "config/**/*",
