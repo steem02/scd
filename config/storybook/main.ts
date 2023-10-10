@@ -15,7 +15,11 @@ const config: StorybookConfig = {
   staticDirs: ['../../public'],
   framework: {
     name: '@storybook/react-webpack5',
-    options: {},
+    options: {
+      builder: {
+        fsCache: true,
+      },
+    },
   },
   docs: {
     autodocs: 'tag',

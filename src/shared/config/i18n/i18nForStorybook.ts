@@ -8,14 +8,12 @@ i18n
   .use(LanguageDetector)
   .use(Backend)
   .init({
-    lng: 'en',
-    fallbackLng: 'en',
-    defaultNS: 'common',
+    lng: 'ru',
+    fallbackLng: 'ru',
+    defaultNS: 'translation',
     interpolation: { escapeValue: false },
     react: { useSuspense: false },
   })
-  .catch((e) => {
-    console.log(e.message);
-  });
+  .catch(() => {});
 
 export default i18n;
