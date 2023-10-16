@@ -13,7 +13,6 @@ export type ButtonProps<C extends React.ElementType = 'button'> = {
 export function Button<C extends React.ElementType = 'button'>(props: ButtonProps<C>) {
   const { as, children, className, size = 'm', inverted, variant = 'primary', ...rest } = props;
   const Component = as ?? 'button';
-  console.log(variant);
   return (
     <Component
       data-testid={'test-button'}

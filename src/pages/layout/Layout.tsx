@@ -3,6 +3,7 @@ import { Header } from '@/widgets/Header';
 import { Page } from '@/widgets/Page';
 import { Sidebar } from '@/widgets/Sidebar';
 import s from './Layout.module.scss';
+import React from 'react';
 
 export function Layout() {
   return (

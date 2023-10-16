@@ -16,7 +16,7 @@ module.exports = {
     },
   },
   root: true,
-  plugins: ['react', 'i18next', '@typescript-eslint'],
+  plugins: ['react', 'i18next', '@typescript-eslint', 'react-hooks'],
   rules: {
     '@typescript-eslint/explicit-function-return-type': [0],
     '@typescript-eslint/no-empty-interface': [1],
@@ -46,6 +46,10 @@ module.exports = {
         },
       },
     ],
+    '@typescript-eslint/no-confusing-void-expression': [0],
+    '@typescript-eslint/method-signature-style': [0],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'error',
   },
   overrides: [
     {
