@@ -2,6 +2,7 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 import { type BuildPaths } from '../build/types/config';
 import path from 'path';
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
+import webpack from 'webpack';
 
 const config: StorybookConfig = {
   stories: ['../../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -32,8 +33,6 @@ const config: StorybookConfig = {
       src: path.join(__dirname, '..', '..', 'src'),
     };
 
-    // if (configType === 'DEVELOPMENT') {
-    // Modify config for development
     if (config.resolve != null) {
       config.resolve.alias = {
         '@': paths.src,
@@ -41,6 +40,12 @@ const config: StorybookConfig = {
       config.resolve.extensions?.push('.tsx', '.ts');
       config.resolve.modules?.push(paths.src);
     }
+
+    config.plugins?.push(
+      new webpack.DefinePlugin({
+        __IS_DEV__: JSON.stringify(true),
+      })
+    );
 
     if (config.module?.rules != null) {
       config.module.rules.push(buildCssLoaders(true));
@@ -62,7 +67,7 @@ const config: StorybookConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-    // }
+
     return config;
   },
 };

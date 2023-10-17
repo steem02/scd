@@ -1,7 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import MainPage from './MainPage';
 import type React from 'react';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
+const initialStore = {
+  counter: { value: 10 },
+};
 const meta: Meta<typeof MainPage> = {
   title: 'pages/MainPage',
   component: MainPage,
@@ -11,6 +15,7 @@ const meta: Meta<typeof MainPage> = {
     // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
     // layout: 'centered',
   },
+  decorators: [StoreDecorator(initialStore)],
 };
 
 export default meta;
