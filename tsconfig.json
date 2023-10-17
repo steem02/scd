@@ -30,7 +30,8 @@
     "webpack.config.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "json-server/**/*"
   ],
   "ts-node": {
     "compilerOptions": {

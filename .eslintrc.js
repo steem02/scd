@@ -48,8 +48,9 @@ module.exports = {
     ],
     '@typescript-eslint/no-confusing-void-expression': [0],
     '@typescript-eslint/method-signature-style': [0],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'error',
+    'react-hooks/rules-of-hooks': [0],
+    'react-hooks/exhaustive-deps': [0],
+    'react/display-name': [0],
   },
   overrides: [
     {
