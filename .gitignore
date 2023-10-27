@@ -7,3 +7,5 @@
 .eslintcache
 /storybook-static
 .yarn
+report.html
+report.json

@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test:unit": "jest --config \"./config/jest/jest.config.ts\"",
-    "test:ui": "loki test",
+    "test:ui": "loki test -c \"./config/storybook\"",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
-    "test:ui:ok": "loki approve",
+    "test:ui:ok": "loki approve -c \"./config/storybook\"",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js .loki/report.json",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
