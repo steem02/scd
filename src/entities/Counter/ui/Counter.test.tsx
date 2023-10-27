@@ -6,7 +6,7 @@ import { Counter } from '@/entities/Counter';
 
 describe('Counter component', () => {
   test('increment', async () => {
-    const initialStore: StateSchema = {
+    const initialStore: Partial<StateSchema> = {
       counter: {
         value: 10,
       },
@@ -21,7 +21,7 @@ describe('Counter component', () => {
   });
 
   test('decrement', async () => {
-    const initialStore: StateSchema = {
+    const initialStore: Partial<StateSchema> = {
       counter: {
         value: 10,
       },

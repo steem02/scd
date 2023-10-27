@@ -1,7 +1,7 @@
 import { Provider } from 'react-redux';
 import { type PropsWithChildren } from 'react';
-import { createReduxStore } from '../config/Store';
-import { type StateSchema } from '../types/storeSchema';
+import { createReduxStore } from '../config/store';
+import { type StateSchema } from '../types/StateSchema';
 
 interface StoreProviderProps {
   initialState?: StateSchema;

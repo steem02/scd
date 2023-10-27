@@ -1,9 +1,16 @@
 {
   "en": "En",
+  "form": {
+    "submit": "Submit",
+    "titles": {
+      "login": "Auth"
+    }
+  },
   "lang": {
     "default": "English",
     "short": "En"
   },
+  "login": "Login",
   "oops": "Oops!!! Error!",
   "reload": "Reload page",
   "toggle": "Toggle"

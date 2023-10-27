@@ -15,7 +15,7 @@ interface SidebarProps {
 
 export function Sidebar({ className }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
-  const t = useTranslate();
+  const t = useTranslate(['main', 'about']);
   return (
     <div
       data-testid={'sidebar'}

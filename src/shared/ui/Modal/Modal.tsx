@@ -58,15 +58,13 @@ export function Modal({ isOpen, children, onClose }: PropsWithChildren<ModalProp
 
   return (
     <Portal>
-      <div>
-        <div
-          className={cn(s.overlay, toggleClasses)}
-          onClick={handleClose}
-          onAnimationEnd={onAnimationEnd}
-        >
-          <div className={cn(s.content, toggleClasses)} onClick={(e) => e.stopPropagation()}>
-            {children}
-          </div>
+      <div
+        className={cn(s.overlay, toggleClasses)}
+        onClick={handleClose}
+        onAnimationEnd={onAnimationEnd}
+      >
+        <div className={cn(s.content, toggleClasses)} onClick={(e) => e.stopPropagation()}>
+          {children}
         </div>
       </div>
     </Portal>
