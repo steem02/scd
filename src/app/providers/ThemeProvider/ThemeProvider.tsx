@@ -1,10 +1,4 @@
-import {
-  type PropsWithChildren,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import { type PropsWithChildren, useContext, useEffect, useMemo, useState } from 'react';
 import { type Theme, ThemeContext, type ThemeVariant } from './ThemeContext';
 
 export function useTheme() {
@@ -17,12 +11,9 @@ export function useTheme() {
 }
 
 const LOCAL_STORAGE_THEME_KEY = 'THEME-KEY';
-const defaultTheme =
-  (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeVariant) ?? 'light';
+const defaultTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeVariant) ?? 'light';
 
-export function ThemeProvider(
-  props: PropsWithChildren<Record<string, unknown>>
-) {
+export function ThemeProvider(props: PropsWithChildren<Record<string, unknown>>) {
   const [theme, setTheme] = useState<ThemeVariant>(defaultTheme);
 
   useEffect(() => {
@@ -43,9 +34,5 @@ export function ThemeProvider(
     [theme]
   );
 
-  return (
-    <ThemeContext.Provider value={themeContextValue}>
-      {props.children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={themeContextValue}>{props.children}</ThemeContext.Provider>;
 }

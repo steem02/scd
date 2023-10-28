@@ -5,9 +5,7 @@ import { buildPlugins } from './buildPlugins';
 import { type BuildOptions } from './types/config';
 import { buildDevServer } from './buildDevServer';
 
-export const buildWebpackConfig = (
-  options: BuildOptions
-): webpack.Configuration => ({
+export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration => ({
   mode: options.mode,
   devtool: options.isDev ? 'inline-source-map' : undefined,
   entry: options.paths.entry,
