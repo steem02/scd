@@ -11,6 +11,7 @@
     "short": "En"
   },
   "login": "Login",
+  "logout": "Exit",
   "oops": "Oops!!! Error!",
   "reload": "Reload page",
   "toggle": "Toggle"

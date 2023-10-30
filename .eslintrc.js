@@ -5,7 +5,12 @@ module.exports = {
     jest: true,
   },
   parser: '@typescript-eslint/parser',
-  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:react/jsx-runtime'],
+  extends: [
+    'standard-with-typescript',
+    'plugin:react/recommended',
+    'plugin:react/jsx-runtime',
+    'prettier',
+  ],
   parserOptions: {
     sourceType: 'module',
     tsConfigRootDir: __dirname,
@@ -18,6 +23,7 @@ module.exports = {
   root: true,
   plugins: ['react', 'i18next', '@typescript-eslint', 'react-hooks'],
   rules: {
+    '@typescript-eslint/no-misused-promises': 0,
     '@typescript-eslint/explicit-function-return-type': [0],
     '@typescript-eslint/no-empty-interface': [1],
     '@typescript-eslint/no-unused-vars': [1],

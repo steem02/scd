@@ -26,6 +26,21 @@ export const PrimaryDark: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
+};
+
+export const DisabledDark: Story = {
+  parameters: {
+    theme: 'dark',
+  },
+  args: {
+    disabled: true,
+  },
+};
+
 export const Cleared: Story = {
   args: {
     variant: 'cleared',

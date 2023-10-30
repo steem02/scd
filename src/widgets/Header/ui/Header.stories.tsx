@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header';
 import type React from 'react';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 const meta: Meta<typeof Header> = {
   title: 'widgets/Header',
@@ -21,4 +22,13 @@ export const PrimaryDark: Story = {
   parameters: {
     theme: 'dark',
   },
+};
+export const Authorized: Story = {
+  decorators: [
+    StoreDecorator({
+      user: {
+        authData: { id: 0, username: '' },
+      },
+    }),
+  ],
 };

@@ -8,15 +8,29 @@ export type ButtonProps<C extends React.ElementType = 'button'> = {
   size?: 's' | 'm' | 'l';
   inverted?: boolean;
   className?: string;
+  disabled?: boolean;
 } & React.ComponentProps<C>;
 
 export function Button<C extends React.ElementType = 'button'>(props: ButtonProps<C>) {
-  const { as, children, className, size = 'm', inverted, variant = 'primary', ...rest } = props;
+  const {
+    as,
+    children,
+    className,
+    size = 'm',
+    inverted,
+    variant = 'primary',
+    disabled,
+    ...rest
+  } = props;
   const Component = as ?? 'button';
+
+  const mods = { [s.inverted]: inverted, [s.disabled]: disabled };
+
   return (
     <Component
       data-testid={'test-button'}
-      className={cn([className, s.root, s[variant], s[size]], { [s.inverted]: inverted })}
+      disabled={disabled}
+      className={cn([className, s.root, s[variant], s[size]], mods)}
       {...rest}
     >
       {children}

@@ -3,6 +3,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator';
 import { RouteDecorator } from '@/shared/config/storybook/RouteDecorator';
 import i18n from '@/shared/config/i18n/i18nForStorybook';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 const preview: Preview = {
   globals: {
@@ -22,7 +23,7 @@ const preview: Preview = {
     },
     i18n,
   },
-  decorators: [RouteDecorator, StyleDecorator, ThemeDecorator],
+  decorators: [StoreDecorator(), RouteDecorator, StyleDecorator, ThemeDecorator],
 };
 
 export default preview;
