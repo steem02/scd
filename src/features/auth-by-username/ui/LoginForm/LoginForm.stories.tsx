@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { LoginForm } from './LoginForm';
+import LoginForm from './LoginForm';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 
 const meta: Meta<typeof LoginForm> = {
@@ -20,6 +20,7 @@ export const Normal: Story = {
     }),
   ],
 };
+
 export const Error: Story = {
   decorators: [
     StoreDecorator({

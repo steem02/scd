@@ -1,5 +1,5 @@
 import type * as React from 'react';
-import { cn } from '@/shared/libs/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Test.module.scss';
 
 type TextProps<C extends React.ElementType = 'p'> = {

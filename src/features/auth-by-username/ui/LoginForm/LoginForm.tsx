@@ -1,26 +1,35 @@
 import { useTranslate } from '@/shared/hooks/useTranslate';
 import { Input } from '@/shared/ui/Input/Input';
-import { cn } from '@/shared/libs/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import s from './LoginForm.module.scss';
 import { type FormEvent, memo, useCallback } from 'react';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
-import { loginActions } from '../../model/slice/formSlice';
+import { loginActions, loginReducer } from '../../model/slice/formSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
-import { loginByUserName } from '@/features/auth-by-username/model/services/loginByUserName/loginByUserName';
+import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { Button } from '@/shared/ui/Button';
 import { Text } from '@/shared/ui/Text/Text';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginIsPassword } from '../../model/selectors/getLoginIsPassword/getLoginIsPassword';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { DynamicModuleLoader } from '@/shared/lib/store/DynamicModuleLoader';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
   onSubmit?: () => void;
 }
+
+const initialReducers = { loginForm: loginReducer };
 
 function Form({ className }: LoginFormProps) {
   const t = useTranslate();
   const appDispatch = useAppDispatch();
   const dispatch = useDispatch();
-  const { username, password, error, isLoading } = useSelector(getLoginState);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginIsPassword);
+  const error = useSelector(getLoginError);
+  const isLoading = useSelector(getLoginIsLoading);
 
   const onChangeUserName = useCallback((value: string) => {
     dispatch(loginActions.setUserName(value));
@@ -33,37 +42,41 @@ function Form({ className }: LoginFormProps) {
   const onSubmit = useCallback(
     async (e: FormEvent) => {
       e.preventDefault();
-      await appDispatch(loginByUserName({ username, password }));
+      if (username != null && password != null) {
+        await appDispatch(loginByUserName({ username, password }));
+      }
     },
     [username, password, error]
   );
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className={cn([className, s.loginForm])}>
-        <Text>{t('form.titles.login')}</Text>
-        <Input
-          name={'username'}
-          placeholder={'Введите username'}
-          autoFocus
-          onChange={onChangeUserName}
-          value={username}
-        />
-        <Input
-          type={'password'}
-          name={'password'}
-          placeholder={'Введите пароль'}
-          onChange={onChangePassword}
-          value={password}
-        />
+    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+      <form onSubmit={onSubmit}>
+        <div className={cn([className, s.loginForm])}>
+          <Text>{t('form.titles.login')}</Text>
+          <Input
+            name={'username'}
+            placeholder={'Введите username'}
+            autoFocus
+            onChange={onChangeUserName}
+            value={username}
+          />
+          <Input
+            type={'password'}
+            name={'password'}
+            placeholder={'Введите пароль'}
+            onChange={onChangePassword}
+            value={password}
+          />
 
-        <Button className={s.submitBtn} type='submit' disabled={isLoading}>
-          {t('form.submit')}
-        </Button>
-        {error != null && <Text variant={'error'}>{error}</Text>}
-      </div>
-    </form>
+          <Button className={s.submitBtn} type='submit' disabled={isLoading}>
+            {t('form.submit')}
+          </Button>
+          {error != null && <Text variant={'error'}>{error}</Text>}
+        </div>
+      </form>
+    </DynamicModuleLoader>
   );
 }
 
-export const LoginForm = memo(Form);
+export default memo(Form);

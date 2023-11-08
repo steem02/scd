@@ -1,4 +1,4 @@
-import { cn } from '@/shared/libs/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Header.module.scss';
 import { useTranslate } from '@/shared/hooks/useTranslate';
 import { Button } from '@/shared/ui/Button';

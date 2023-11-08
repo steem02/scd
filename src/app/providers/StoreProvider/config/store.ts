@@ -2,21 +2,29 @@ import { configureStore, type ReducersMapObject } from '@reduxjs/toolkit';
 import { type StateSchema } from '../types/StateSchema';
 import { counterReducer } from '@/entities/Counter';
 import { userReducer } from '@/entities/User';
-import { loginReducer } from '@/features/auth-by-username';
 import { type TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import { createReducerManager } from '@/shared/lib/store/reducerManager';
 
-export const createReduxStore = (initialState?: StateSchema) => {
+export const createReduxStore = (
+  initialState?: StateSchema,
+  asyncReducers?: ReducersMapObject<StateSchema>
+) => {
   const rootReducers: ReducersMapObject<StateSchema> = {
+    ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
-    loginForm: loginReducer,
   };
+  const reducerManager = createReducerManager(rootReducers);
 
-  return configureStore({
-    reducer: rootReducers,
+  const store = configureStore<StateSchema>({
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
   });
+  // @ts-expect-error потом
+  store.reducerManager = reducerManager;
+
+  return store;
 };
 
 export type AppStore = ReturnType<typeof createReduxStore>;

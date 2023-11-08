@@ -1,4 +1,4 @@
-import { cn } from '@/shared/libs/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 
 describe('classname', () => {
   it('test different values', () => {

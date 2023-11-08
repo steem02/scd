@@ -5,5 +5,5 @@ import { type LoginSchema } from '@/features/auth-by-username';
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
-  loginForm: LoginSchema;
+  loginForm?: LoginSchema;
 }

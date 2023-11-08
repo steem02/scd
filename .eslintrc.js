@@ -23,6 +23,7 @@ module.exports = {
   root: true,
   plugins: ['react', 'i18next', '@typescript-eslint', 'react-hooks'],
   rules: {
+    '@typescript-eslint/no-dynamic-delete': 0,
     '@typescript-eslint/no-misused-promises': 0,
     '@typescript-eslint/explicit-function-return-type': [0],
     '@typescript-eslint/no-empty-interface': [1],

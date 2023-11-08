@@ -7,7 +7,7 @@ import {
   useState,
 } from 'react';
 import s from './Modal.module.scss';
-import { cn } from '@/shared/libs/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import { Portal } from '@/shared/ui/Portal/Portal';
 
 interface ModalProps {

@@ -1,5 +1,5 @@
 import { ThemeSwitcher } from '@/features/switch-theme';
-import { cn } from '@/shared/libs/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Sidebar.module.scss';
 import { useState } from 'react';
 import { LangSwitcher } from '@/features/switch-lang';

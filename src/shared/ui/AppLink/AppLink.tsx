@@ -1,5 +1,5 @@
 import { NavLink, type NavLinkProps } from 'react-router-dom';
-import { cn } from '@/shared/libs/classNames/classNames';
+import { cn } from '@/shared/lib/classNames/classNames';
 import s from './AppLink.module.scss';
 
 type LinkVariant = 'primary' | 'inverse';
