@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { type User } from '@/entities/User';
+import { type User, userActions } from '@/entities/User';
 import axios from 'axios';
-import { userSlice } from '@/entities/User/model/slice/userSlice';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 
 interface LoginDataParams {
@@ -20,9 +19,9 @@ export const loginByUserName = createAsyncThunk<
     const reply = await axios.post<User>('http://localhost:8000/login', authData);
 
     if (reply.data == null) {
-      throw new Error('Error');
+      throw new Error();
     }
-    thunkAPI.dispatch(userSlice.actions.setAuthData(reply.data));
+    thunkAPI.dispatch(userActions.setAuthData(reply.data));
     localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(reply.data));
     return reply.data;
   } catch (err) {

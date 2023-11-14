@@ -3,14 +3,14 @@ import { Input } from '@/shared/ui/Input/Input';
 import { cn } from '@/shared/lib/classNames/classNames';
 import s from './LoginForm.module.scss';
 import { type FormEvent, memo, useCallback } from 'react';
-import { loginActions, loginReducer } from '../../model/slice/formSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAppDispatch } from '@/app/providers/StoreProvider';
 import { loginByUserName } from '../../model/services/loginByUserName/loginByUserName';
 import { Button } from '@/shared/ui/Button';
 import { Text } from '@/shared/ui/Text/Text';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
-import { getLoginIsPassword } from '../../model/selectors/getLoginIsPassword/getLoginIsPassword';
+import { getLoginPassword } from '@/features/auth-by-username/model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { DynamicModuleLoader } from '@/shared/lib/store/DynamicModuleLoader';
@@ -27,7 +27,7 @@ function Form({ className }: LoginFormProps) {
   const appDispatch = useAppDispatch();
   const dispatch = useDispatch();
   const username = useSelector(getLoginUsername);
-  const password = useSelector(getLoginIsPassword);
+  const password = useSelector(getLoginPassword);
   const error = useSelector(getLoginError);
   const isLoading = useSelector(getLoginIsLoading);
 

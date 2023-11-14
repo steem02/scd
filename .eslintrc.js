@@ -31,6 +31,7 @@ module.exports = {
     '@typescript-eslint/comma-dangle': [0],
     '@typescript-eslint/semi': [0],
     'i18next/no-literal-string': 1,
+    '@typescript-eslint/return-await': 0,
     '@typescript-eslint/space-before-function-paren': [
       2,
       {
