@@ -1,4 +1,5 @@
 import type * as React from 'react';
+import { memo } from 'react';
 import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Button.module.scss';
 
@@ -11,7 +12,9 @@ export type ButtonProps<C extends React.ElementType = 'button'> = {
   disabled?: boolean;
 } & React.ComponentProps<C>;
 
-export function Button<C extends React.ElementType = 'button'>(props: ButtonProps<C>) {
+export const Button = memo(function Button<C extends React.ElementType = 'button'>(
+  props: ButtonProps<C>
+) {
   const {
     as,
     children,
@@ -36,4 +39,4 @@ export function Button<C extends React.ElementType = 'button'>(props: ButtonProp
       {children}
     </Component>
   );
-}
+});

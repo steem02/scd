@@ -1,6 +1,6 @@
 import '@/app/styles/index.scss';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
-import { AppRouter } from '@/app/providers/RouterProvider/ui/AppRouter';
+import { AppRouter } from '@/app/providers/RouterProvider';
 import '@/shared/config/i18n/i18n';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { useDispatch } from 'react-redux';

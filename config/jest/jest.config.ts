@@ -28,6 +28,7 @@ const config: Config = {
   roots: ['<rootDir>/src/'],
   moduleNameMapper: {
     '^@/.*\\.svg$': '<rootDir>/config/jest/__mocks__/fileTransformer.tsx',
+    '^@/.*\\.s?css$': 'identity-obj-proxy',
     '@/(.*)$': '<rootDir>/src/$1',
     '\\.s?css$': 'identity-obj-proxy',
     '\\.svg$': '<rootDir>/config/jest/__mocks__/fileTransformer.tsx',

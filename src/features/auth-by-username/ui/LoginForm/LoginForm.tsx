@@ -22,7 +22,7 @@ export interface LoginFormProps {
 
 const initialReducers = { loginForm: loginReducer };
 
-function Form({ className }: LoginFormProps) {
+function Form(props: LoginFormProps) {
   const t = useTranslate();
   const appDispatch = useAppDispatch();
   const dispatch = useDispatch();
@@ -43,7 +43,10 @@ function Form({ className }: LoginFormProps) {
     async (e: FormEvent) => {
       e.preventDefault();
       if (username != null && password != null) {
-        await appDispatch(loginByUserName({ username, password }));
+        const result = await appDispatch(loginByUserName({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+          props.onSubmit?.();
+        }
       }
     },
     [username, password, error]
@@ -52,7 +55,7 @@ function Form({ className }: LoginFormProps) {
   return (
     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
       <form onSubmit={onSubmit}>
-        <div className={cn([className, s.loginForm])}>
+        <div className={cn([props.className, s.loginForm])}>
           <Text>{t('form.titles.login')}</Text>
           <Input
             name={'username'}

@@ -1,8 +1,9 @@
 import { useTranslate } from '@/shared/hooks/useTranslate';
 import s from './PageError.module.scss';
 import { Button } from '@/shared/ui/Button';
+import { memo } from 'react';
 
-export function PageError() {
+export const PageError = memo(function PageError() {
   const t = useTranslate('translation');
 
   const onReload = () => {
@@ -15,4 +16,4 @@ export function PageError() {
       <Button onClick={onReload}>{t('reload')}</Button>
     </div>
   );
-}
+});

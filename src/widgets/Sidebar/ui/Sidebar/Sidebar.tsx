@@ -1,37 +1,35 @@
 import { ThemeSwitcher } from '@/features/switch-theme';
 import { cn } from '@/shared/lib/classNames/classNames';
 import s from './Sidebar.module.scss';
-import { useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { LangSwitcher } from '@/features/switch-lang';
-import { useTranslate } from '@/shared/hooks/useTranslate';
 import { Button } from '@/shared/ui/Button';
-import { AppLink } from '@/shared/ui';
-import Main from '@/shared/assets/icons/main.svg';
-import About from '@/shared/assets/icons/about.svg';
+import { useMenuConfigs } from '@/app/hooks/useMenuConfigs';
+import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string;
 }
 
-export function Sidebar({ className }: SidebarProps) {
+export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
+  // TODO в дальнейшем это должен быть контекст или стор, который инициализируется в app
+  const menuConfigs = useMenuConfigs();
 
-  const t = useTranslate(['main', 'about']);
+  const menuItems = useMemo(
+    () =>
+      menuConfigs.map((item) => (
+        <SidebarItem menuItem={item} collapsed={collapsed} key={item.routeConfig.path} />
+      )),
+    [menuConfigs, collapsed]
+  );
+
   return (
     <div
       data-testid={'sidebar'}
       className={cn([s.sidebar, className], { [s.collapsed]: collapsed })}
     >
-      <div className={s.nav}>
-        <AppLink to={'/main'} variant={'inverse'} className={s.link}>
-          <Main className={s.menuIcon} />
-          {!collapsed && <span>{t('title', { ns: 'main' })}</span>}
-        </AppLink>
-        <AppLink to={'/about'} variant={'inverse'} className={s.link}>
-          <About className={s.menuIcon} />
-          {!collapsed && <span>{t('title', { ns: 'about' })}</span>}
-        </AppLink>
-      </div>
+      <div className={s.nav}>{menuItems}</div>
 
       <Button
         className={s.collapsedButton}
@@ -50,4 +48,4 @@ export function Sidebar({ className }: SidebarProps) {
       </div>
     </div>
   );
-}
+});
