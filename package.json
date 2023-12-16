@@ -33,7 +33,6 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "yarn lint:fix",
       "yarn prettier"
     ],
     "*.{css,scss}": [

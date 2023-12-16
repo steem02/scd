@@ -12,6 +12,7 @@ interface DynamicModuleLoaderProps {
   reducers: AsyncReducers<StateSchema>;
   removeAfterUnmount?: boolean;
 }
+
 // TODO сделать обобщенный тип вместо StateSchema
 export function DynamicModuleLoader(props: PropsWithChildren<DynamicModuleLoaderProps>) {
   const { reducers, children, removeAfterUnmount = false } = props;
@@ -19,15 +20,15 @@ export function DynamicModuleLoader(props: PropsWithChildren<DynamicModuleLoader
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Object.entries(reducers).forEach(([name, reducer]: [StateSchemaKeys<StateSchema>, Reducer]) => {
-      store.reducerManager.add(name, reducer);
+    Object.entries(reducers).forEach(([name, reducer]) => {
+      store.reducerManager.add(name as StateSchemaKeys<StateSchema>, reducer as Reducer);
       dispatch({ type: `@INIT ${name}` });
     });
 
     return () => {
       if (removeAfterUnmount) {
-        Object.keys(reducers).forEach((name: StateSchemaKeys<StateSchema>) => {
-          store.reducerManager.remove(name);
+        Object.keys(reducers).forEach((name) => {
+          store.reducerManager.remove(name as StateSchemaKeys<StateSchema>);
           dispatch({ type: `@DESTROY ${name}` });
         });
       }
