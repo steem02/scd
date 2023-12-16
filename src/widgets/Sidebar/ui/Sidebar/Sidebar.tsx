@@ -4,7 +4,7 @@ import s from './Sidebar.module.scss';
 import { memo, useMemo, useState } from 'react';
 import { LangSwitcher } from '@/features/switch-lang';
 import { Button } from '@/shared/ui/Button';
-import { useMenuConfigs } from '@/app/hooks/useMenuConfigs';
+import { useMenuItems } from '@/app/hooks/useMenuItems';
 import { SidebarItem } from '@/widgets/Sidebar/ui/SidebarItem/SidebarItem';
 
 interface SidebarProps {
@@ -14,7 +14,7 @@ interface SidebarProps {
 export const Sidebar = memo(function Sidebar({ className }: SidebarProps) {
   const [collapsed, setCollapsed] = useState(false);
   // TODO в дальнейшем это должен быть контекст или стор, который инициализируется в app
-  const menuConfigs = useMenuConfigs();
+  const menuConfigs = useMenuItems();
 
   const menuItems = useMemo(
     () =>

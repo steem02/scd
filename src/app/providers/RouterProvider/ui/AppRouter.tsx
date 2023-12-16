@@ -2,10 +2,10 @@ import { Layout } from '@/pages/layout/Layout';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { NotFoundPage } from '@/pages/not-found';
-import { useMenuConfigs } from '@/app/hooks/useMenuConfigs';
+import { useMenuItems } from '@/app/hooks/useMenuItems';
 
 export function AppRouter() {
-  const menuItems = useMenuConfigs();
+  const menuItems = useMenuItems();
   return (
     <Routes>
       <Route index element={<Navigate to='/main' />} />

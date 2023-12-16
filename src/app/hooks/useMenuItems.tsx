@@ -2,20 +2,15 @@ import { MainPage } from '@/pages/main';
 import { AboutPage } from '@/pages/about';
 import { ProfilePage } from '@/pages/profile';
 import { useTranslate } from '@/shared/hooks/useTranslate';
-import { useMemo } from 'react';
-import { type MenuItem } from '@/entities/Menu';
 import iconStyles from '@/entities/Menu/styles/MenuIcon.module.scss';
 import Main from '@/shared/assets/icons/main.svg';
 import About from '@/shared/assets/icons/about.svg';
 import Profile from '@/shared/assets/icons/profile.svg';
+import type { MenuItem } from '@/entities/Menu';
+import { useMemo } from 'react';
+import { RouterPath } from '../types/RouterPath';
 
-enum RouterPath {
-  Main = '/main',
-  About = '/about',
-  Profile = '/profile',
-}
-
-export const useMenuConfigs = () => {
+export const useMenuItems = () => {
   const t = useTranslate(['main', 'about', 'profile']);
   return useMemo<MenuItem[]>(
     () => [
