@@ -5,7 +5,7 @@ import { getProfileIsLoading } from './getProfileIsLoading';
 describe('check get loading selector', () => {
   test('should return loading status', () => {
     const initialStore: DeepPartial<StateSchema> = {
-      loginForm: {
+      profile: {
         isLoading: true,
       },
     };

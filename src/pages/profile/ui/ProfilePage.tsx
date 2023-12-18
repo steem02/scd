@@ -11,7 +11,7 @@ export default memo(function ProfilePage() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchProfileData());
+    dispatch(fetchProfileData()).catch(() => {});
   }, []);
 
   return (

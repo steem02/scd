@@ -2,25 +2,27 @@ import {
   type AnyAction,
   type CombinedState,
   combineReducers,
-  type Reducer,
   type ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { type StateSchemaKeys } from '../../types/redux';
+import { type Action } from 'redux';
+
+export type Reducer<S = any, A extends Action = AnyAction> = (state: S, action: A) => S;
 
 export function createReducerManager<T>(initialReducers: ReducersMapObject<T>) {
   const reducers: ReducersMapObject<T> = { ...initialReducers };
 
-  let combinedReducer = combineReducers(reducers);
+  let combinedReducer: Reducer = combineReducers(reducers);
 
   let keysToRemove: Array<StateSchemaKeys<T>> = [];
 
   return {
     getReducerMap: () => reducers,
-    reduce: (state: CombinedState<T>, action: AnyAction) => {
+    reduce: (state: CombinedState<T> | undefined, action: AnyAction) => {
+      const s = { ...(state as CombinedState<T>) };
       if (keysToRemove.length > 0) {
-        state = { ...state };
         for (const key of keysToRemove) {
-          delete state[key];
+          delete s[key];
         }
         keysToRemove = [];
       }

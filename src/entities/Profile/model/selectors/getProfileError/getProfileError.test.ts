@@ -5,7 +5,7 @@ import { getProfileError } from './getProfileError';
 describe('check get error selector', () => {
   test('get error state', () => {
     const initialStore: DeepPartial<StateSchema> = {
-      loginForm: {
+      profile: {
         error: 'Ошибка',
       },
     };

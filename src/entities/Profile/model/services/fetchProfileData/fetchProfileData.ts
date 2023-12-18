@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { RouterPath } from '@/app/types/RouterPath';
 import type { ThunkConfig } from '@/app/providers/StoreProvider';
-import { Profile } from '@/entities/Profile';
+import type { Profile } from '@/entities/Profile';
 
-export const fetchProfileData = createAsyncThunk<Profile, void, ThunkConfig>(
+export const fetchProfileData = createAsyncThunk<Profile, undefined, ThunkConfig>(
   'profile/fetchProfileData',
   async (_, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI;

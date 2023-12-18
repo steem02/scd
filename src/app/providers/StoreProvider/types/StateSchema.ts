@@ -20,7 +20,7 @@ export interface ThunkExtraArgs {
   navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
-export interface ThunkConfig {
-  rejectValue: string;
+export interface ThunkConfig<T = string> {
+  rejectValue: T extends infer D ? D : string;
   extra: ThunkExtraArgs;
 }

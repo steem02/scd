@@ -5,7 +5,6 @@ import {
   type ReduxStoreWithManager,
   type StateSchemaKeys,
 } from '@/shared/types/redux';
-import { type Reducer } from '@reduxjs/toolkit';
 import { type StateSchema } from '@/app/providers/StoreProvider';
 
 interface DynamicModuleLoaderProps {
@@ -21,7 +20,7 @@ export function DynamicModuleLoader(props: PropsWithChildren<DynamicModuleLoader
 
   useEffect(() => {
     Object.entries(reducers).forEach(([name, reducer]) => {
-      store.reducerManager.add(name as StateSchemaKeys<StateSchema>, reducer as Reducer);
+      store.reducerManager.add(name as StateSchemaKeys<StateSchema>, reducer);
       dispatch({ type: `@INIT ${name}` });
     });
 
